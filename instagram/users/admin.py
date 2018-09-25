@@ -12,24 +12,6 @@ from users.models import Profile
 class ProfileAdmin(admin.ModelAdmin):
 	"""Profile admin."""
 
-	list_display = ('pk', 'user', 'phone_number', 'website', 'picture')
-	list_display_links = ('pk', 'user')
-	list_editable = ('phone_number', 'website')
-	search_fields = (
-		'user__email',
-		'user__username',
-		'user__first_name',
-		'user__last_name',
-		'phone_number',
-		'website',
-		'biography',
-	)
-	list_filter = (
-		'user__is_active',
-		'user__is_staff',
-		'created',
-		'modified',
-	)
 	fieldsets = (
 		('Profile', {
 			'fields': (
@@ -48,6 +30,25 @@ class ProfileAdmin(admin.ModelAdmin):
 			)
 		})
 	)
+
+	list_display = ('id', 'user', 'phone_number', 'website', 'biography')
+	list_display_links = ('id', 'user')
+	# list_editable = ('phone_number',)
+	search_fields = (
+		'user__email',
+		'user__username',
+		'user__first_name',
+		'user__last_name',
+		'phone_number',
+		'website',
+		'biography',
+	)
+	list_filter = (
+		'user__is_active',
+		'user__is_staff',
+		'created',
+		'modified',
+	)
 	readonly_fields = ('created', 'modified')
 
 class ProfileInline(admin.StackedInline):
@@ -60,7 +61,7 @@ class ProfileInline(admin.StackedInline):
 class UserAdmin(BaseUserAdmin):
 	"""Add profile admin to base user admin."""
 
-	inline = (ProfileInline, )
+	inlines = (ProfileInline, )
 	list_display = (
 		'username',
 		'email',

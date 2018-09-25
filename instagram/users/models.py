@@ -22,6 +22,10 @@ class Profile(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now=True)
 
+	class Meta:
+		verbose_name = 'Profile'
+		verbose_name_plural = 'Profiles'
+
 	def __str__(self):
 		"""Return username."""
 
