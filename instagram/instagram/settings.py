@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     # Local middlewares
-    'instagram.middleware.ProfileCompletionMiddleware'
+    'instagram.middleware.ProfileCompletionMiddleware',
 ]
 
 ROOT_URLCONF = 'instagram.urls'

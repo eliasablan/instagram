@@ -11,6 +11,28 @@ from posts.models import Post
 class PostAdmin(admin.ModelAdmin):
 	"""Post admin."""
 
-	list_display = ('id', 'user', 'title', 'photo')
-	search_fields = ('title', 'user__username', 'user__email')
+	fieldsets = (
+        ('Usuario', {
+            'fields': (
+                ('user', 'profile'),
+            )
+        }),
+        ('Contenido', {
+            'fields': (
+                ('title'),
+                ('slug'),
+                ('photo'),
+            )
+        }),
+        ('Metadata', {
+            'fields': (
+                ('created', 'modified'),
+            )
+        }),
+    )
+
+	prepopulated_fields = {"slug": ("title",)}
+	list_display = ('id', 'profile', 'title', 'photo')
+	search_fields = ('title', 'slug', 'user__username', 'user__email')
 	list_filter = ('created', 'modified')
+	readonly_fields = ('created', 'modified')
