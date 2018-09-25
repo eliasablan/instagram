@@ -56,7 +56,6 @@ MIDDLEWARE = [
 
     # Local middlewares
     'instagram.middleware.ProfileCompletionMiddleware',
-    'instagram.middleware.GetGuitarists'
 ]
 
 ROOT_URLCONF = 'instagram.urls'
