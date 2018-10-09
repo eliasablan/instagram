@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-venv/
-
-*.pyc
-__pychache__/
-
-media/
-db.sqlite3
-
+# Mac IOS file's folder position
 .DS_Store
-=======
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -122,4 +114,6 @@ __pycache__/
 local_settings.py
 db.sqlite3
 media
->>>>>>> origin/master
+
+# Visual Studio CODE folder
+.vscode
